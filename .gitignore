@@ -1,0 +1,12 @@
+# Python environment and caches
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets (API keys)
+.env
+
+# Large datasets and generated databases
+data/
+*.sqlite
+*.db
