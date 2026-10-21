@@ -1,0 +1,12 @@
+{
+  "rename": {
+    "tasks": 39,
+    "ran_without_error": 39,
+    "correct": 39
+  },
+  "opaque": {
+    "tasks": 39,
+    "ran_without_error": 39,
+    "correct": 39
+  }
+}
