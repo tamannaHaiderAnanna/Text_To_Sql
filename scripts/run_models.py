@@ -1,7 +1,7 @@
 """Ask a model to adapt each SchemaShift task to the changed database, run its SQL, and score it.
 
-Works with any OpenAI-compatible chat endpoint: Ollama on this laptop (the default,
-http://localhost:11434/v1), vLLM on Colab, or a hosted API. Two baselines need no model:
+Works with any OpenAI-compatible chat endpoint: Ollama (the default,
+http://127.0.0.1:11434/v1), vLLM on Colab, or a hosted API. Two baselines need no model:
   old-query  change nothing (how often the old query is still right, or silently wrong)
   reference  the scripted rewrite from make_schema_changes.py (rename/opaque only; should score 100%)
 Results go to results/<db>__<model>__<mode>[__hint].jsonl, one line per task. An interrupted
@@ -31,6 +31,12 @@ from make_schema_changes import column_refs, load_schema  # noqa: E402
 
 SYSTEM = "You are an expert SQLite developer."
 OPERATORS = ("rename", "opaque", "split", "softdelete")
+
+
+def run_name(db_id: str, model: str, mode: str, hint: bool) -> str:
+    """File name stem of a run's results, e.g. student_club__qwen2.5-coder-7b__adapt__hint."""
+    slug = re.sub(r"[^A-Za-z0-9.]+", "-", model).strip("-")
+    return f"{db_id}__{slug}__{mode}{'__hint' if hint else ''}"
 
 
 def open_ro(db: Path) -> sqlite3.Connection:
@@ -155,7 +161,7 @@ def main() -> None:
     p.add_argument("--rows", type=int, default=3, help="example rows shown per table")
     p.add_argument("--operators", default=",".join(OPERATORS))
     p.add_argument("--limit", type=int, default=0, help="only the first N tasks (0 = all)")
-    p.add_argument("--base-url", default="http://localhost:11434/v1")
+    p.add_argument("--base-url", default="http://127.0.0.1:11434/v1")  # not "localhost": on Windows it tries IPv6 first
     p.add_argument("--api-key-env", default="", help="name of the environment variable holding the API key")
     p.add_argument("--max-tokens", type=int, default=1024)
     p.add_argument("--timeout", type=int, default=600, help="seconds to wait for one model answer")
@@ -175,8 +181,7 @@ def main() -> None:
     if args.limit:
         tasks = tasks[:args.limit]
 
-    slug = re.sub(r"[^A-Za-z0-9.]+", "-", args.model).strip("-")
-    run = f"{changes['db_id']}__{slug}__{args.mode}{'__hint' if args.hint else ''}"
+    run = run_name(changes["db_id"], args.model, args.mode, args.hint)
     out_file = args.out.resolve() / f"{run}.jsonl"
     out_file.parent.mkdir(parents=True, exist_ok=True)
     done = set()
