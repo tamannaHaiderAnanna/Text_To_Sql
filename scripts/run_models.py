@@ -120,7 +120,7 @@ def mentions_deleted(sql: str, schema: dict, tables: list):
     """True if the query reads is_deleted on every soft-deleted table it uses; None if unparsable."""
     try:
         tree = sqlglot.parse_one(sql, read="sqlite")
-    except sqlglot.errors.ParseError:
+    except sqlglot.errors.SqlglotError:  # ParseError, and TokenError for e.g. an unterminated string
         return None
     used = {t.name.lower() for t in tree.find_all(exp.Table)} & set(tables)
     refs = {key for _, key in column_refs(tree, schema) if key}
