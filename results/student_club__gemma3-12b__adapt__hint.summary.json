@@ -1,0 +1,25 @@
+{
+  "rename": {
+    "tasks": 39,
+    "ran_without_error": 39,
+    "correct": 37
+  },
+  "opaque": {
+    "tasks": 39,
+    "ran_without_error": 36,
+    "correct": 16
+  },
+  "split": {
+    "tasks": 26,
+    "ran_without_error": 14,
+    "correct": 11
+  },
+  "softdelete": {
+    "tasks": 40,
+    "ran_without_error": 35,
+    "correct": 35,
+    "silent_tasks": 18,
+    "silent_fixed": 15,
+    "mentions_is_deleted": 38
+  }
+}
