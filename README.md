@@ -119,7 +119,9 @@ SchemaShift's opaque-name and soft-delete changes come from this question.
 - Add a second database (`financial`) and label the mistakes by hand to build a taxonomy.
 - Build and test a simple check that catches silent soft-delete errors.
 
-## Data
+## Data and license
+
+The code is released under the [MIT License](LICENSE).
 
 [BIRD Mini-Dev](https://github.com/bird-bench/mini_dev) is released under CC BY-SA 4.0. The
 changed databases are derived from it and are not stored here; `scripts/make_schema_changes.py`
