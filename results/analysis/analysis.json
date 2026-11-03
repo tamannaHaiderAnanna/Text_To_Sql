@@ -1,0 +1,2098 @@
+{
+  "sqlite_version": "3.50.4",
+  "silent_tasks": 18,
+  "silent_tasks_set_rule": 18,
+  "rerun_differences": [],
+  "set_vs_strict": [
+    {
+      "task_id": "student_club-1322-rename",
+      "reason": "duplicate rows",
+      "runs": 1
+    },
+    {
+      "task_id": "student_club-1334-split",
+      "reason": "duplicate rows",
+      "runs": 1
+    },
+    {
+      "task_id": "student_club-1338-opaque",
+      "reason": "duplicate rows",
+      "runs": 9
+    },
+    {
+      "task_id": "student_club-1387-rename",
+      "reason": "duplicate rows",
+      "runs": 1
+    },
+    {
+      "task_id": "student_club-1399-opaque",
+      "reason": "duplicate rows",
+      "runs": 1
+    },
+    {
+      "task_id": "student_club-1435-rename",
+      "reason": "duplicate rows",
+      "runs": 2
+    }
+  ],
+  "float_noise_only": 0,
+  "runs": [
+    {
+      "file": "student_club__old-query__adapt.jsonl",
+      "model": "old-query",
+      "mode": "adapt",
+      "hint": false,
+      "complete": true,
+      "median_seconds": 0.0,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 0,
+          "correct_bag": 0,
+          "correct": 0,
+          "ci95": [
+            0.0,
+            0.09
+          ],
+          "sql_error": 39,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 39
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 0,
+          "correct_bag": 0,
+          "correct": 0,
+          "ci95": [
+            0.0,
+            0.09
+          ],
+          "sql_error": 39,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 39
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 0,
+          "correct_bag": 0,
+          "correct": 0,
+          "ci95": [
+            0.0,
+            0.129
+          ],
+          "sql_error": 26,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 26
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 22,
+          "correct_bag": 22,
+          "correct": 22,
+          "ci95": [
+            0.398,
+            0.693
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 18,
+          "old_query_unchanged": 40,
+          "silent_tasks": 18,
+          "silent_fixed": 0
+        }
+      }
+    },
+    {
+      "file": "student_club__reference__adapt.jsonl",
+      "model": "reference",
+      "mode": "adapt",
+      "hint": false,
+      "complete": true,
+      "median_seconds": 0.0,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 39,
+          "correct_bag": 39,
+          "correct": 39,
+          "ci95": [
+            0.91,
+            1.0
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 39,
+          "correct_bag": 39,
+          "correct": 39,
+          "ci95": [
+            0.91,
+            1.0
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 0
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 26,
+          "correct_bag": 26,
+          "correct": 26,
+          "ci95": [
+            0.871,
+            1.0
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 0
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 40,
+          "correct_bag": 40,
+          "correct": 40,
+          "ci95": [
+            0.912,
+            1.0
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 0,
+          "silent_tasks": 18,
+          "silent_fixed": 18
+        }
+      }
+    },
+    {
+      "file": "student_club__qwen2.5-coder-1.5b__adapt.jsonl",
+      "model": "qwen2.5-coder:1.5b",
+      "mode": "adapt",
+      "hint": false,
+      "complete": true,
+      "median_seconds": 0.5,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 9,
+          "correct_bag": 9,
+          "correct": 9,
+          "ci95": [
+            0.126,
+            0.383
+          ],
+          "sql_error": 30,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 17
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 2,
+          "correct_bag": 2,
+          "correct": 2,
+          "ci95": [
+            0.014,
+            0.169
+          ],
+          "sql_error": 37,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 35
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 1,
+          "correct_bag": 1,
+          "correct": 1,
+          "ci95": [
+            0.007,
+            0.189
+          ],
+          "sql_error": 25,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 22
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 22,
+          "correct_bag": 22,
+          "correct": 22,
+          "ci95": [
+            0.398,
+            0.693
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 18,
+          "old_query_unchanged": 38,
+          "silent_tasks": 18,
+          "silent_fixed": 0
+        }
+      }
+    },
+    {
+      "file": "student_club__qwen2.5-coder-1.5b__adapt__hint.jsonl",
+      "model": "qwen2.5-coder:1.5b",
+      "mode": "adapt",
+      "hint": true,
+      "complete": true,
+      "median_seconds": 0.6,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 12,
+          "correct_bag": 12,
+          "correct": 12,
+          "ci95": [
+            0.186,
+            0.464
+          ],
+          "sql_error": 27,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 13
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 5,
+          "correct_bag": 5,
+          "correct": 5,
+          "ci95": [
+            0.056,
+            0.267
+          ],
+          "sql_error": 34,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 32
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 2,
+          "correct_bag": 2,
+          "correct": 2,
+          "ci95": [
+            0.021,
+            0.241
+          ],
+          "sql_error": 24,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 22
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 25,
+          "correct_bag": 25,
+          "correct": 25,
+          "ci95": [
+            0.47,
+            0.758
+          ],
+          "sql_error": 11,
+          "ran_but_wrong": 4,
+          "old_query_unchanged": 2,
+          "silent_tasks": 18,
+          "silent_fixed": 11
+        }
+      }
+    },
+    {
+      "file": "student_club__qwen2.5-coder-3b__adapt.jsonl",
+      "model": "qwen2.5-coder:3b",
+      "mode": "adapt",
+      "hint": false,
+      "complete": false,
+      "median_seconds": 0.9,
+      "by_change": {
+        "rename": {
+          "tasks": 16,
+          "correct_set": 9,
+          "correct_bag": 9,
+          "correct": 9,
+          "ci95": [
+            0.332,
+            0.769
+          ],
+          "sql_error": 7,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 2
+        },
+        "opaque": {
+          "tasks": 16,
+          "correct_set": 1,
+          "correct_bag": 1,
+          "correct": 1,
+          "ci95": [
+            0.011,
+            0.283
+          ],
+          "sql_error": 11,
+          "ran_but_wrong": 4,
+          "old_query_unchanged": 8
+        },
+        "split": {
+          "tasks": 9,
+          "correct_set": 0,
+          "correct_bag": 0,
+          "correct": 0,
+          "ci95": [
+            0.0,
+            0.299
+          ],
+          "sql_error": 9,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 8
+        },
+        "softdelete": {
+          "tasks": 16,
+          "correct_set": 9,
+          "correct_bag": 9,
+          "correct": 9,
+          "ci95": [
+            0.332,
+            0.769
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 7,
+          "old_query_unchanged": 14,
+          "silent_tasks": 7,
+          "silent_fixed": 0
+        }
+      }
+    },
+    {
+      "file": "student_club__qwen2.5-coder-3b__adapt__hint.jsonl",
+      "model": "qwen2.5-coder:3b",
+      "mode": "adapt",
+      "hint": true,
+      "complete": false,
+      "median_seconds": 1.1,
+      "by_change": {
+        "rename": {
+          "tasks": 16,
+          "correct_set": 10,
+          "correct_bag": 10,
+          "correct": 10,
+          "ci95": [
+            0.386,
+            0.815
+          ],
+          "sql_error": 6,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 3
+        },
+        "opaque": {
+          "tasks": 16,
+          "correct_set": 3,
+          "correct_bag": 2,
+          "correct": 2,
+          "ci95": [
+            0.035,
+            0.36
+          ],
+          "sql_error": 10,
+          "ran_but_wrong": 4,
+          "old_query_unchanged": 7
+        },
+        "split": {
+          "tasks": 9,
+          "correct_set": 1,
+          "correct_bag": 1,
+          "correct": 1,
+          "ci95": [
+            0.02,
+            0.435
+          ],
+          "sql_error": 8,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 7
+        },
+        "softdelete": {
+          "tasks": 16,
+          "correct_set": 13,
+          "correct_bag": 13,
+          "correct": 13,
+          "ci95": [
+            0.57,
+            0.934
+          ],
+          "sql_error": 2,
+          "ran_but_wrong": 1,
+          "old_query_unchanged": 0,
+          "silent_tasks": 7,
+          "silent_fixed": 5
+        }
+      }
+    },
+    {
+      "file": "student_club__qwen2.5-coder-7b__adapt.jsonl",
+      "model": "qwen2.5-coder:7b",
+      "mode": "adapt",
+      "hint": false,
+      "complete": true,
+      "median_seconds": 2.2,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 37,
+          "correct_bag": 37,
+          "correct": 37,
+          "ci95": [
+            0.831,
+            0.986
+          ],
+          "sql_error": 2,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 8,
+          "correct_bag": 8,
+          "correct": 8,
+          "ci95": [
+            0.108,
+            0.355
+          ],
+          "sql_error": 30,
+          "ran_but_wrong": 1,
+          "old_query_unchanged": 9
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 2,
+          "correct_bag": 2,
+          "correct": 2,
+          "ci95": [
+            0.021,
+            0.241
+          ],
+          "sql_error": 24,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 19
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 22,
+          "correct_bag": 22,
+          "correct": 22,
+          "ci95": [
+            0.398,
+            0.693
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 18,
+          "old_query_unchanged": 34,
+          "silent_tasks": 18,
+          "silent_fixed": 0
+        }
+      }
+    },
+    {
+      "file": "student_club__qwen2.5-coder-7b__adapt__hint.jsonl",
+      "model": "qwen2.5-coder:7b",
+      "mode": "adapt",
+      "hint": true,
+      "complete": true,
+      "median_seconds": 2.8,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 38,
+          "correct_bag": 38,
+          "correct": 38,
+          "ci95": [
+            0.868,
+            0.995
+          ],
+          "sql_error": 1,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 11,
+          "correct_bag": 11,
+          "correct": 11,
+          "ci95": [
+            0.165,
+            0.438
+          ],
+          "sql_error": 25,
+          "ran_but_wrong": 3,
+          "old_query_unchanged": 7
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 10,
+          "correct_bag": 10,
+          "correct": 10,
+          "ci95": [
+            0.224,
+            0.575
+          ],
+          "sql_error": 16,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 15
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 16,
+          "correct_bag": 16,
+          "correct": 16,
+          "ci95": [
+            0.263,
+            0.554
+          ],
+          "sql_error": 24,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 0,
+          "silent_tasks": 18,
+          "silent_fixed": 5
+        }
+      }
+    },
+    {
+      "file": "student_club__qwen2.5-coder-14b__adapt.jsonl",
+      "model": "qwen2.5-coder:14b",
+      "mode": "adapt",
+      "hint": false,
+      "complete": true,
+      "median_seconds": 4.6,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 39,
+          "correct_bag": 39,
+          "correct": 39,
+          "ci95": [
+            0.91,
+            1.0
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 31,
+          "correct_bag": 31,
+          "correct": 31,
+          "ci95": [
+            0.645,
+            0.892
+          ],
+          "sql_error": 4,
+          "ran_but_wrong": 4,
+          "old_query_unchanged": 2
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 17,
+          "correct_bag": 17,
+          "correct": 17,
+          "ci95": [
+            0.462,
+            0.806
+          ],
+          "sql_error": 9,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 8
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 24,
+          "correct_bag": 24,
+          "correct": 24,
+          "ci95": [
+            0.446,
+            0.737
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 16,
+          "old_query_unchanged": 30,
+          "silent_tasks": 18,
+          "silent_fixed": 2
+        }
+      }
+    },
+    {
+      "file": "student_club__qwen2.5-coder-14b__adapt__hint.jsonl",
+      "model": "qwen2.5-coder:14b",
+      "mode": "adapt",
+      "hint": true,
+      "complete": true,
+      "median_seconds": 5.0,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 39,
+          "correct_bag": 39,
+          "correct": 39,
+          "ci95": [
+            0.91,
+            1.0
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 39,
+          "correct_bag": 39,
+          "correct": 39,
+          "ci95": [
+            0.91,
+            1.0
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 0
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 22,
+          "correct_bag": 22,
+          "correct": 22,
+          "ci95": [
+            0.665,
+            0.938
+          ],
+          "sql_error": 4,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 4
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 35,
+          "correct_bag": 35,
+          "correct": 35,
+          "ci95": [
+            0.739,
+            0.945
+          ],
+          "sql_error": 4,
+          "ran_but_wrong": 1,
+          "old_query_unchanged": 0,
+          "silent_tasks": 18,
+          "silent_fixed": 14
+        }
+      }
+    },
+    {
+      "file": "student_club__llama3.1-8b__adapt.jsonl",
+      "model": "llama3.1:8b",
+      "mode": "adapt",
+      "hint": false,
+      "complete": true,
+      "median_seconds": 2.8,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 25,
+          "correct_bag": 25,
+          "correct": 25,
+          "ci95": [
+            0.484,
+            0.773
+          ],
+          "sql_error": 2,
+          "ran_but_wrong": 12,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 12,
+          "correct_bag": 10,
+          "correct": 10,
+          "ci95": [
+            0.146,
+            0.411
+          ],
+          "sql_error": 4,
+          "ran_but_wrong": 25,
+          "old_query_unchanged": 0
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 7,
+          "correct_bag": 7,
+          "correct": 7,
+          "ci95": [
+            0.137,
+            0.461
+          ],
+          "sql_error": 14,
+          "ran_but_wrong": 5,
+          "old_query_unchanged": 2
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 18,
+          "correct_bag": 18,
+          "correct": 18,
+          "ci95": [
+            0.307,
+            0.602
+          ],
+          "sql_error": 1,
+          "ran_but_wrong": 21,
+          "old_query_unchanged": 16,
+          "silent_tasks": 18,
+          "silent_fixed": 4
+        }
+      }
+    },
+    {
+      "file": "student_club__llama3.1-8b__adapt__hint.jsonl",
+      "model": "llama3.1:8b",
+      "mode": "adapt",
+      "hint": true,
+      "complete": true,
+      "median_seconds": 2.8,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 26,
+          "correct_bag": 26,
+          "correct": 26,
+          "ci95": [
+            0.51,
+            0.794
+          ],
+          "sql_error": 2,
+          "ran_but_wrong": 11,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 18,
+          "correct_bag": 17,
+          "correct": 17,
+          "ci95": [
+            0.293,
+            0.59
+          ],
+          "sql_error": 1,
+          "ran_but_wrong": 21,
+          "old_query_unchanged": 0
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 9,
+          "correct_bag": 8,
+          "correct": 8,
+          "ci95": [
+            0.165,
+            0.5
+          ],
+          "sql_error": 12,
+          "ran_but_wrong": 6,
+          "old_query_unchanged": 1
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 27,
+          "correct_bag": 27,
+          "correct": 27,
+          "ci95": [
+            0.52,
+            0.799
+          ],
+          "sql_error": 2,
+          "ran_but_wrong": 11,
+          "old_query_unchanged": 0,
+          "silent_tasks": 18,
+          "silent_fixed": 12
+        }
+      }
+    },
+    {
+      "file": "student_club__gemma3-12b__adapt.jsonl",
+      "model": "gemma3:12b",
+      "mode": "adapt",
+      "hint": false,
+      "complete": true,
+      "median_seconds": 7.5,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 37,
+          "correct_bag": 36,
+          "correct": 36,
+          "ci95": [
+            0.797,
+            0.973
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 3,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 17,
+          "correct_bag": 16,
+          "correct": 16,
+          "ci95": [
+            0.271,
+            0.566
+          ],
+          "sql_error": 4,
+          "ran_but_wrong": 19,
+          "old_query_unchanged": 0
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 9,
+          "correct_bag": 9,
+          "correct": 9,
+          "ci95": [
+            0.194,
+            0.538
+          ],
+          "sql_error": 14,
+          "ran_but_wrong": 3,
+          "old_query_unchanged": 11
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 21,
+          "correct_bag": 21,
+          "correct": 21,
+          "ci95": [
+            0.375,
+            0.671
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 19,
+          "old_query_unchanged": 35,
+          "silent_tasks": 18,
+          "silent_fixed": 0
+        }
+      }
+    },
+    {
+      "file": "student_club__gemma3-12b__adapt__hint.jsonl",
+      "model": "gemma3:12b",
+      "mode": "adapt",
+      "hint": true,
+      "complete": true,
+      "median_seconds": 8.2,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 37,
+          "correct_bag": 36,
+          "correct": 36,
+          "ci95": [
+            0.797,
+            0.973
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 3,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 16,
+          "correct_bag": 15,
+          "correct": 15,
+          "ci95": [
+            0.249,
+            0.541
+          ],
+          "sql_error": 3,
+          "ran_but_wrong": 21,
+          "old_query_unchanged": 0
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 11,
+          "correct_bag": 11,
+          "correct": 11,
+          "ci95": [
+            0.255,
+            0.611
+          ],
+          "sql_error": 12,
+          "ran_but_wrong": 3,
+          "old_query_unchanged": 10
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 35,
+          "correct_bag": 35,
+          "correct": 35,
+          "ci95": [
+            0.739,
+            0.945
+          ],
+          "sql_error": 5,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 0,
+          "silent_tasks": 18,
+          "silent_fixed": 15
+        }
+      }
+    },
+    {
+      "file": "student_club__phi4-14b__adapt.jsonl",
+      "model": "phi4:14b",
+      "mode": "adapt",
+      "hint": false,
+      "complete": true,
+      "median_seconds": 10.649999999999999,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 38,
+          "correct_bag": 38,
+          "correct": 38,
+          "ci95": [
+            0.868,
+            0.995
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 1,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 26,
+          "correct_bag": 25,
+          "correct": 25,
+          "ci95": [
+            0.484,
+            0.773
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 14,
+          "old_query_unchanged": 0
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 20,
+          "correct_bag": 20,
+          "correct": 20,
+          "ci95": [
+            0.579,
+            0.89
+          ],
+          "sql_error": 6,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 1
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 22,
+          "correct_bag": 22,
+          "correct": 22,
+          "ci95": [
+            0.398,
+            0.693
+          ],
+          "sql_error": 1,
+          "ran_but_wrong": 17,
+          "old_query_unchanged": 28,
+          "silent_tasks": 18,
+          "silent_fixed": 1
+        }
+      }
+    },
+    {
+      "file": "student_club__deepseek-coder-v2-16b__adapt.jsonl",
+      "model": "deepseek-coder-v2:16b",
+      "mode": "adapt",
+      "hint": false,
+      "complete": true,
+      "median_seconds": 2.9,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 36,
+          "correct_bag": 36,
+          "correct": 36,
+          "ci95": [
+            0.797,
+            0.973
+          ],
+          "sql_error": 1,
+          "ran_but_wrong": 2,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 4,
+          "correct_bag": 4,
+          "correct": 4,
+          "ci95": [
+            0.041,
+            0.236
+          ],
+          "sql_error": 24,
+          "ran_but_wrong": 11,
+          "old_query_unchanged": 7
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 9,
+          "correct_bag": 9,
+          "correct": 9,
+          "ci95": [
+            0.194,
+            0.538
+          ],
+          "sql_error": 17,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 11
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 21,
+          "correct_bag": 21,
+          "correct": 21,
+          "ci95": [
+            0.375,
+            0.671
+          ],
+          "sql_error": 1,
+          "ran_but_wrong": 18,
+          "old_query_unchanged": 25,
+          "silent_tasks": 18,
+          "silent_fixed": 0
+        }
+      }
+    },
+    {
+      "file": "student_club__deepseek-coder-v2-16b__adapt__hint.jsonl",
+      "model": "deepseek-coder-v2:16b",
+      "mode": "adapt",
+      "hint": true,
+      "complete": true,
+      "median_seconds": 3.0,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 38,
+          "correct_bag": 38,
+          "correct": 38,
+          "ci95": [
+            0.868,
+            0.995
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 1,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 3,
+          "correct_bag": 3,
+          "correct": 3,
+          "ci95": [
+            0.027,
+            0.203
+          ],
+          "sql_error": 18,
+          "ran_but_wrong": 18,
+          "old_query_unchanged": 1
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 9,
+          "correct_bag": 9,
+          "correct": 9,
+          "ci95": [
+            0.194,
+            0.538
+          ],
+          "sql_error": 13,
+          "ran_but_wrong": 4,
+          "old_query_unchanged": 6
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 31,
+          "correct_bag": 31,
+          "correct": 31,
+          "ci95": [
+            0.625,
+            0.877
+          ],
+          "sql_error": 8,
+          "ran_but_wrong": 1,
+          "old_query_unchanged": 1,
+          "silent_tasks": 18,
+          "silent_fixed": 14
+        }
+      }
+    },
+    {
+      "file": "student_club__hf.co-mradermacher-OmniSQL-7B-GGUF-Q4-K-M__adapt.jsonl",
+      "model": "hf.co/mradermacher/OmniSQL-7B-GGUF:Q4_K_M",
+      "mode": "adapt",
+      "hint": false,
+      "complete": true,
+      "median_seconds": 18.3,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 36,
+          "correct_bag": 35,
+          "correct": 35,
+          "ci95": [
+            0.764,
+            0.959
+          ],
+          "sql_error": 2,
+          "ran_but_wrong": 2,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 12,
+          "correct_bag": 11,
+          "correct": 11,
+          "ci95": [
+            0.165,
+            0.438
+          ],
+          "sql_error": 23,
+          "ran_but_wrong": 5,
+          "old_query_unchanged": 9
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 4,
+          "correct_bag": 4,
+          "correct": 4,
+          "ci95": [
+            0.062,
+            0.335
+          ],
+          "sql_error": 22,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 17
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 22,
+          "correct_bag": 22,
+          "correct": 22,
+          "ci95": [
+            0.398,
+            0.693
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 18,
+          "old_query_unchanged": 29,
+          "silent_tasks": 18,
+          "silent_fixed": 0
+        }
+      }
+    },
+    {
+      "file": "student_club__hf.co-mradermacher-OmniSQL-7B-GGUF-Q4-K-M__adapt__hint.jsonl",
+      "model": "hf.co/mradermacher/OmniSQL-7B-GGUF:Q4_K_M",
+      "mode": "adapt",
+      "hint": true,
+      "complete": true,
+      "median_seconds": 18.1,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 37,
+          "correct_bag": 36,
+          "correct": 36,
+          "ci95": [
+            0.797,
+            0.973
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 3,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 16,
+          "correct_bag": 15,
+          "correct": 15,
+          "ci95": [
+            0.249,
+            0.541
+          ],
+          "sql_error": 20,
+          "ran_but_wrong": 4,
+          "old_query_unchanged": 10
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 7,
+          "correct_bag": 7,
+          "correct": 7,
+          "ci95": [
+            0.137,
+            0.461
+          ],
+          "sql_error": 19,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 13
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 22,
+          "correct_bag": 22,
+          "correct": 22,
+          "ci95": [
+            0.398,
+            0.693
+          ],
+          "sql_error": 1,
+          "ran_but_wrong": 17,
+          "old_query_unchanged": 27,
+          "silent_tasks": 18,
+          "silent_fixed": 0
+        }
+      }
+    },
+    {
+      "file": "student_club__hf.co-mradermacher-Arctic-Text2SQL-R1-7B-GGUF-Q4-K-M__adapt.jsonl",
+      "model": "hf.co/mradermacher/Arctic-Text2SQL-R1-7B-GGUF:Q4_K_M",
+      "mode": "adapt",
+      "hint": false,
+      "complete": true,
+      "median_seconds": 20.3,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 37,
+          "correct_bag": 37,
+          "correct": 37,
+          "ci95": [
+            0.831,
+            0.986
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 2,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 21,
+          "correct_bag": 20,
+          "correct": 20,
+          "ci95": [
+            0.362,
+            0.661
+          ],
+          "sql_error": 1,
+          "ran_but_wrong": 18,
+          "old_query_unchanged": 1
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 19,
+          "correct_bag": 19,
+          "correct": 19,
+          "ci95": [
+            0.539,
+            0.863
+          ],
+          "sql_error": 6,
+          "ran_but_wrong": 1,
+          "old_query_unchanged": 3
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 22,
+          "correct_bag": 22,
+          "correct": 22,
+          "ci95": [
+            0.398,
+            0.693
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 18,
+          "old_query_unchanged": 33,
+          "silent_tasks": 18,
+          "silent_fixed": 0
+        }
+      }
+    },
+    {
+      "file": "student_club__hf.co-mradermacher-Arctic-Text2SQL-R1-7B-GGUF-Q4-K-M__adapt__hint.jsonl",
+      "model": "hf.co/mradermacher/Arctic-Text2SQL-R1-7B-GGUF:Q4_K_M",
+      "mode": "adapt",
+      "hint": true,
+      "complete": true,
+      "median_seconds": 19.7,
+      "by_change": {
+        "rename": {
+          "tasks": 39,
+          "correct_set": 38,
+          "correct_bag": 38,
+          "correct": 38,
+          "ci95": [
+            0.868,
+            0.995
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 1,
+          "old_query_unchanged": 0
+        },
+        "opaque": {
+          "tasks": 39,
+          "correct_set": 26,
+          "correct_bag": 25,
+          "correct": 25,
+          "ci95": [
+            0.484,
+            0.773
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 14,
+          "old_query_unchanged": 0
+        },
+        "split": {
+          "tasks": 26,
+          "correct_set": 22,
+          "correct_bag": 22,
+          "correct": 22,
+          "ci95": [
+            0.665,
+            0.938
+          ],
+          "sql_error": 4,
+          "ran_but_wrong": 0,
+          "old_query_unchanged": 2
+        },
+        "softdelete": {
+          "tasks": 40,
+          "correct_set": 24,
+          "correct_bag": 24,
+          "correct": 24,
+          "ci95": [
+            0.446,
+            0.737
+          ],
+          "sql_error": 0,
+          "ran_but_wrong": 16,
+          "old_query_unchanged": 26,
+          "silent_tasks": 18,
+          "silent_fixed": 2
+        }
+      }
+    }
+  ],
+  "loud_or_silent": [
+    {
+      "change": "rename",
+      "hint": false,
+      "runs": 8,
+      "answers": 312,
+      "wrong": 58,
+      "sql_error": 37,
+      "ran_but_wrong": 21,
+      "old_query_unchanged": 17
+    },
+    {
+      "change": "rename",
+      "hint": true,
+      "runs": 8,
+      "answers": 312,
+      "wrong": 49,
+      "sql_error": 30,
+      "ran_but_wrong": 19,
+      "old_query_unchanged": 13
+    },
+    {
+      "change": "opaque",
+      "hint": false,
+      "runs": 8,
+      "answers": 312,
+      "wrong": 210,
+      "sql_error": 127,
+      "ran_but_wrong": 83,
+      "old_query_unchanged": 63
+    },
+    {
+      "change": "opaque",
+      "hint": true,
+      "runs": 8,
+      "answers": 312,
+      "wrong": 182,
+      "sql_error": 101,
+      "ran_but_wrong": 81,
+      "old_query_unchanged": 50
+    },
+    {
+      "change": "split",
+      "hint": false,
+      "runs": 8,
+      "answers": 208,
+      "wrong": 140,
+      "sql_error": 131,
+      "ran_but_wrong": 9,
+      "old_query_unchanged": 93
+    },
+    {
+      "change": "split",
+      "hint": true,
+      "runs": 8,
+      "answers": 208,
+      "wrong": 117,
+      "sql_error": 104,
+      "ran_but_wrong": 13,
+      "old_query_unchanged": 73
+    },
+    {
+      "change": "softdelete",
+      "hint": false,
+      "runs": 8,
+      "answers": 320,
+      "wrong": 148,
+      "sql_error": 2,
+      "ran_but_wrong": 146,
+      "old_query_unchanged": 240
+    },
+    {
+      "change": "softdelete",
+      "hint": true,
+      "runs": 8,
+      "answers": 320,
+      "wrong": 105,
+      "sql_error": 55,
+      "ran_but_wrong": 50,
+      "old_query_unchanged": 56
+    }
+  ],
+  "hint_tests": [
+    {
+      "model": "qwen2.5-coder:1.5b",
+      "change": "rename",
+      "pairs": 39,
+      "correct_a": 9,
+      "correct_b": 12,
+      "only_a": 0,
+      "only_b": 3,
+      "p": 0.25,
+      "p_holm": 1.0
+    },
+    {
+      "model": "qwen2.5-coder:1.5b",
+      "change": "opaque",
+      "pairs": 39,
+      "correct_a": 2,
+      "correct_b": 5,
+      "only_a": 0,
+      "only_b": 3,
+      "p": 0.25,
+      "p_holm": 1.0
+    },
+    {
+      "model": "qwen2.5-coder:1.5b",
+      "change": "split",
+      "pairs": 26,
+      "correct_a": 1,
+      "correct_b": 2,
+      "only_a": 0,
+      "only_b": 1,
+      "p": 1.0,
+      "p_holm": 1.0
+    },
+    {
+      "model": "qwen2.5-coder:1.5b",
+      "change": "softdelete",
+      "pairs": 40,
+      "correct_a": 22,
+      "correct_b": 25,
+      "only_a": 8,
+      "only_b": 11,
+      "p": 0.6476058959960938,
+      "p_holm": 1.0
+    },
+    {
+      "model": "qwen2.5-coder:1.5b",
+      "change": "softdelete-silent",
+      "pairs": 18,
+      "correct_a": 0,
+      "correct_b": 11,
+      "only_a": 0,
+      "only_b": 11,
+      "p": 0.0009765625,
+      "p_holm": 0.0361328125
+    },
+    {
+      "model": "qwen2.5-coder:7b",
+      "change": "rename",
+      "pairs": 39,
+      "correct_a": 37,
+      "correct_b": 38,
+      "only_a": 0,
+      "only_b": 1,
+      "p": 1.0,
+      "p_holm": 1.0
+    },
+    {
+      "model": "qwen2.5-coder:7b",
+      "change": "opaque",
+      "pairs": 39,
+      "correct_a": 8,
+      "correct_b": 11,
+      "only_a": 0,
+      "only_b": 3,
+      "p": 0.25,
+      "p_holm": 1.0
+    },
+    {
+      "model": "qwen2.5-coder:7b",
+      "change": "split",
+      "pairs": 26,
+      "correct_a": 2,
+      "correct_b": 10,
+      "only_a": 0,
+      "only_b": 8,
+      "p": 0.0078125,
+      "p_holm": 0.265625
+    },
+    {
+      "model": "qwen2.5-coder:7b",
+      "change": "softdelete",
+      "pairs": 40,
+      "correct_a": 22,
+      "correct_b": 16,
+      "only_a": 11,
+      "only_b": 5,
+      "p": 0.210113525390625,
+      "p_holm": 1.0
+    },
+    {
+      "model": "qwen2.5-coder:7b",
+      "change": "softdelete-silent",
+      "pairs": 18,
+      "correct_a": 0,
+      "correct_b": 5,
+      "only_a": 0,
+      "only_b": 5,
+      "p": 0.0625,
+      "p_holm": 1.0
+    },
+    {
+      "model": "qwen2.5-coder:14b",
+      "change": "rename",
+      "pairs": 39,
+      "correct_a": 39,
+      "correct_b": 39,
+      "only_a": 0,
+      "only_b": 0,
+      "p": 1.0,
+      "p_holm": 1.0
+    },
+    {
+      "model": "qwen2.5-coder:14b",
+      "change": "opaque",
+      "pairs": 39,
+      "correct_a": 31,
+      "correct_b": 39,
+      "only_a": 0,
+      "only_b": 8,
+      "p": 0.0078125,
+      "p_holm": 0.265625
+    },
+    {
+      "model": "qwen2.5-coder:14b",
+      "change": "split",
+      "pairs": 26,
+      "correct_a": 17,
+      "correct_b": 22,
+      "only_a": 0,
+      "only_b": 5,
+      "p": 0.0625,
+      "p_holm": 1.0
+    },
+    {
+      "model": "qwen2.5-coder:14b",
+      "change": "softdelete",
+      "pairs": 40,
+      "correct_a": 24,
+      "correct_b": 35,
+      "only_a": 1,
+      "only_b": 12,
+      "p": 0.00341796875,
+      "p_holm": 0.11962890625
+    },
+    {
+      "model": "qwen2.5-coder:14b",
+      "change": "softdelete-silent",
+      "pairs": 18,
+      "correct_a": 2,
+      "correct_b": 14,
+      "only_a": 0,
+      "only_b": 12,
+      "p": 0.00048828125,
+      "p_holm": 0.0185546875
+    },
+    {
+      "model": "llama3.1:8b",
+      "change": "rename",
+      "pairs": 39,
+      "correct_a": 25,
+      "correct_b": 26,
+      "only_a": 0,
+      "only_b": 1,
+      "p": 1.0,
+      "p_holm": 1.0
+    },
+    {
+      "model": "llama3.1:8b",
+      "change": "opaque",
+      "pairs": 39,
+      "correct_a": 10,
+      "correct_b": 17,
+      "only_a": 1,
+      "only_b": 8,
+      "p": 0.0390625,
+      "p_holm": 1.0
+    },
+    {
+      "model": "llama3.1:8b",
+      "change": "split",
+      "pairs": 26,
+      "correct_a": 7,
+      "correct_b": 8,
+      "only_a": 1,
+      "only_b": 2,
+      "p": 1.0,
+      "p_holm": 1.0
+    },
+    {
+      "model": "llama3.1:8b",
+      "change": "softdelete",
+      "pairs": 40,
+      "correct_a": 18,
+      "correct_b": 27,
+      "only_a": 2,
+      "only_b": 11,
+      "p": 0.0224609375,
+      "p_holm": 0.6962890625
+    },
+    {
+      "model": "llama3.1:8b",
+      "change": "softdelete-silent",
+      "pairs": 18,
+      "correct_a": 4,
+      "correct_b": 12,
+      "only_a": 0,
+      "only_b": 8,
+      "p": 0.0078125,
+      "p_holm": 0.265625
+    },
+    {
+      "model": "gemma3:12b",
+      "change": "rename",
+      "pairs": 39,
+      "correct_a": 36,
+      "correct_b": 36,
+      "only_a": 0,
+      "only_b": 0,
+      "p": 1.0,
+      "p_holm": 1.0
+    },
+    {
+      "model": "gemma3:12b",
+      "change": "opaque",
+      "pairs": 39,
+      "correct_a": 16,
+      "correct_b": 15,
+      "only_a": 3,
+      "only_b": 2,
+      "p": 1.0,
+      "p_holm": 1.0
+    },
+    {
+      "model": "gemma3:12b",
+      "change": "split",
+      "pairs": 26,
+      "correct_a": 9,
+      "correct_b": 11,
+      "only_a": 1,
+      "only_b": 3,
+      "p": 0.625,
+      "p_holm": 1.0
+    },
+    {
+      "model": "gemma3:12b",
+      "change": "softdelete",
+      "pairs": 40,
+      "correct_a": 21,
+      "correct_b": 35,
+      "only_a": 2,
+      "only_b": 16,
+      "p": 0.001312255859375,
+      "p_holm": 0.0472412109375
+    },
+    {
+      "model": "gemma3:12b",
+      "change": "softdelete-silent",
+      "pairs": 18,
+      "correct_a": 0,
+      "correct_b": 15,
+      "only_a": 0,
+      "only_b": 15,
+      "p": 6.103515625e-05,
+      "p_holm": 0.00244140625
+    },
+    {
+      "model": "deepseek-coder-v2:16b",
+      "change": "rename",
+      "pairs": 39,
+      "correct_a": 36,
+      "correct_b": 38,
+      "only_a": 0,
+      "only_b": 2,
+      "p": 0.5,
+      "p_holm": 1.0
+    },
+    {
+      "model": "deepseek-coder-v2:16b",
+      "change": "opaque",
+      "pairs": 39,
+      "correct_a": 4,
+      "correct_b": 3,
+      "only_a": 2,
+      "only_b": 1,
+      "p": 1.0,
+      "p_holm": 1.0
+    },
+    {
+      "model": "deepseek-coder-v2:16b",
+      "change": "split",
+      "pairs": 26,
+      "correct_a": 9,
+      "correct_b": 9,
+      "only_a": 2,
+      "only_b": 2,
+      "p": 1.0,
+      "p_holm": 1.0
+    },
+    {
+      "model": "deepseek-coder-v2:16b",
+      "change": "softdelete",
+      "pairs": 40,
+      "correct_a": 21,
+      "correct_b": 31,
+      "only_a": 5,
+      "only_b": 15,
+      "p": 0.04138946533203125,
+      "p_holm": 1.0
+    },
+    {
+      "model": "deepseek-coder-v2:16b",
+      "change": "softdelete-silent",
+      "pairs": 18,
+      "correct_a": 0,
+      "correct_b": 14,
+      "only_a": 0,
+      "only_b": 14,
+      "p": 0.0001220703125,
+      "p_holm": 0.0047607421875
+    },
+    {
+      "model": "hf.co/mradermacher/OmniSQL-7B-GGUF:Q4_K_M",
+      "change": "rename",
+      "pairs": 39,
+      "correct_a": 35,
+      "correct_b": 36,
+      "only_a": 2,
+      "only_b": 3,
+      "p": 1.0,
+      "p_holm": 1.0
+    },
+    {
+      "model": "hf.co/mradermacher/OmniSQL-7B-GGUF:Q4_K_M",
+      "change": "opaque",
+      "pairs": 39,
+      "correct_a": 11,
+      "correct_b": 15,
+      "only_a": 4,
+      "only_b": 8,
+      "p": 0.3876953125,
+      "p_holm": 1.0
+    },
+    {
+      "model": "hf.co/mradermacher/OmniSQL-7B-GGUF:Q4_K_M",
+      "change": "split",
+      "pairs": 26,
+      "correct_a": 4,
+      "correct_b": 7,
+      "only_a": 1,
+      "only_b": 4,
+      "p": 0.375,
+      "p_holm": 1.0
+    },
+    {
+      "model": "hf.co/mradermacher/OmniSQL-7B-GGUF:Q4_K_M",
+      "change": "softdelete",
+      "pairs": 40,
+      "correct_a": 22,
+      "correct_b": 22,
+      "only_a": 0,
+      "only_b": 0,
+      "p": 1.0,
+      "p_holm": 1.0
+    },
+    {
+      "model": "hf.co/mradermacher/OmniSQL-7B-GGUF:Q4_K_M",
+      "change": "softdelete-silent",
+      "pairs": 18,
+      "correct_a": 0,
+      "correct_b": 0,
+      "only_a": 0,
+      "only_b": 0,
+      "p": 1.0,
+      "p_holm": 1.0
+    },
+    {
+      "model": "hf.co/mradermacher/Arctic-Text2SQL-R1-7B-GGUF:Q4_K_M",
+      "change": "rename",
+      "pairs": 39,
+      "correct_a": 37,
+      "correct_b": 38,
+      "only_a": 0,
+      "only_b": 1,
+      "p": 1.0,
+      "p_holm": 1.0
+    },
+    {
+      "model": "hf.co/mradermacher/Arctic-Text2SQL-R1-7B-GGUF:Q4_K_M",
+      "change": "opaque",
+      "pairs": 39,
+      "correct_a": 20,
+      "correct_b": 25,
+      "only_a": 0,
+      "only_b": 5,
+      "p": 0.0625,
+      "p_holm": 1.0
+    },
+    {
+      "model": "hf.co/mradermacher/Arctic-Text2SQL-R1-7B-GGUF:Q4_K_M",
+      "change": "split",
+      "pairs": 26,
+      "correct_a": 19,
+      "correct_b": 22,
+      "only_a": 0,
+      "only_b": 3,
+      "p": 0.25,
+      "p_holm": 1.0
+    },
+    {
+      "model": "hf.co/mradermacher/Arctic-Text2SQL-R1-7B-GGUF:Q4_K_M",
+      "change": "softdelete",
+      "pairs": 40,
+      "correct_a": 22,
+      "correct_b": 24,
+      "only_a": 0,
+      "only_b": 2,
+      "p": 0.5,
+      "p_holm": 1.0
+    },
+    {
+      "model": "hf.co/mradermacher/Arctic-Text2SQL-R1-7B-GGUF:Q4_K_M",
+      "change": "softdelete-silent",
+      "pairs": 18,
+      "correct_a": 0,
+      "correct_b": 2,
+      "only_a": 0,
+      "only_b": 2,
+      "p": 0.5,
+      "p_holm": 1.0
+    }
+  ],
+  "rename_vs_opaque": [
+    {
+      "model": "qwen2.5-coder:1.5b",
+      "hint": false,
+      "pairs": 39,
+      "correct_a": 9,
+      "correct_b": 2,
+      "only_a": 7,
+      "only_b": 0,
+      "p": 0.015625,
+      "p_holm": 0.0625
+    },
+    {
+      "model": "qwen2.5-coder:1.5b",
+      "hint": true,
+      "pairs": 39,
+      "correct_a": 12,
+      "correct_b": 5,
+      "only_a": 7,
+      "only_b": 0,
+      "p": 0.015625,
+      "p_holm": 0.0625
+    },
+    {
+      "model": "qwen2.5-coder:7b",
+      "hint": false,
+      "pairs": 39,
+      "correct_a": 37,
+      "correct_b": 8,
+      "only_a": 29,
+      "only_b": 0,
+      "p": 3.725290298461914e-09,
+      "p_holm": 5.587935447692871e-08
+    },
+    {
+      "model": "qwen2.5-coder:7b",
+      "hint": true,
+      "pairs": 39,
+      "correct_a": 38,
+      "correct_b": 11,
+      "only_a": 27,
+      "only_b": 0,
+      "p": 1.4901161193847656e-08,
+      "p_holm": 2.086162567138672e-07
+    },
+    {
+      "model": "qwen2.5-coder:14b",
+      "hint": false,
+      "pairs": 39,
+      "correct_a": 39,
+      "correct_b": 31,
+      "only_a": 8,
+      "only_b": 0,
+      "p": 0.0078125,
+      "p_holm": 0.0390625
+    },
+    {
+      "model": "qwen2.5-coder:14b",
+      "hint": true,
+      "pairs": 39,
+      "correct_a": 39,
+      "correct_b": 39,
+      "only_a": 0,
+      "only_b": 0,
+      "p": 1.0,
+      "p_holm": 1.0
+    },
+    {
+      "model": "llama3.1:8b",
+      "hint": false,
+      "pairs": 39,
+      "correct_a": 25,
+      "correct_b": 10,
+      "only_a": 16,
+      "only_b": 1,
+      "p": 0.000274658203125,
+      "p_holm": 0.001953125
+    },
+    {
+      "model": "llama3.1:8b",
+      "hint": true,
+      "pairs": 39,
+      "correct_a": 26,
+      "correct_b": 17,
+      "only_a": 11,
+      "only_b": 2,
+      "p": 0.0224609375,
+      "p_holm": 0.0625
+    },
+    {
+      "model": "gemma3:12b",
+      "hint": false,
+      "pairs": 39,
+      "correct_a": 36,
+      "correct_b": 16,
+      "only_a": 20,
+      "only_b": 0,
+      "p": 1.9073486328125e-06,
+      "p_holm": 2.288818359375e-05
+    },
+    {
+      "model": "gemma3:12b",
+      "hint": true,
+      "pairs": 39,
+      "correct_a": 36,
+      "correct_b": 15,
+      "only_a": 23,
+      "only_b": 2,
+      "p": 1.9431114196777344e-05,
+      "p_holm": 0.0001748800277709961
+    },
+    {
+      "model": "phi4:14b",
+      "hint": false,
+      "pairs": 39,
+      "correct_a": 38,
+      "correct_b": 25,
+      "only_a": 14,
+      "only_b": 1,
+      "p": 0.0009765625,
+      "p_holm": 0.005859375
+    },
+    {
+      "model": "deepseek-coder-v2:16b",
+      "hint": false,
+      "pairs": 39,
+      "correct_a": 36,
+      "correct_b": 4,
+      "only_a": 32,
+      "only_b": 0,
+      "p": 4.656612873077393e-10,
+      "p_holm": 7.450580596923828e-09
+    },
+    {
+      "model": "deepseek-coder-v2:16b",
+      "hint": true,
+      "pairs": 39,
+      "correct_a": 38,
+      "correct_b": 3,
+      "only_a": 35,
+      "only_b": 0,
+      "p": 5.820766091346741e-11,
+      "p_holm": 9.89530235528946e-10
+    },
+    {
+      "model": "hf.co/mradermacher/OmniSQL-7B-GGUF:Q4_K_M",
+      "hint": false,
+      "pairs": 39,
+      "correct_a": 35,
+      "correct_b": 11,
+      "only_a": 24,
+      "only_b": 0,
+      "p": 1.1920928955078125e-07,
+      "p_holm": 1.5497207641601562e-06
+    },
+    {
+      "model": "hf.co/mradermacher/OmniSQL-7B-GGUF:Q4_K_M",
+      "hint": true,
+      "pairs": 39,
+      "correct_a": 36,
+      "correct_b": 15,
+      "only_a": 22,
+      "only_b": 1,
+      "p": 5.7220458984375e-06,
+      "p_holm": 6.29425048828125e-05
+    },
+    {
+      "model": "hf.co/mradermacher/Arctic-Text2SQL-R1-7B-GGUF:Q4_K_M",
+      "hint": false,
+      "pairs": 39,
+      "correct_a": 37,
+      "correct_b": 20,
+      "only_a": 17,
+      "only_b": 0,
+      "p": 1.52587890625e-05,
+      "p_holm": 0.000152587890625
+    },
+    {
+      "model": "hf.co/mradermacher/Arctic-Text2SQL-R1-7B-GGUF:Q4_K_M",
+      "hint": true,
+      "pairs": 39,
+      "correct_a": 38,
+      "correct_b": 25,
+      "only_a": 13,
+      "only_b": 0,
+      "p": 0.000244140625,
+      "p_holm": 0.001953125
+    }
+  ]
+}

@@ -56,7 +56,9 @@ def main() -> None:
         ]) + " |")
     table = "\n".join(lines)
     print(table)
-    notes = ("\n\nSilent fixed: soft-delete tasks where the old query runs but returns wrong rows, "
+    notes = ("\n\nScored with BIRD's set rule, as stored by run_models.py. Strict scores, 95% intervals and "
+             "paired tests are in analysis/analysis.md (scripts/analyse_results.py).\n"
+             "Silent fixed: soft-delete tasks where the old query runs but returns wrong rows, "
              "and the model's query returns the right ones.\n"
              "Uses is_deleted: soft-delete tasks where the model's query reads is_deleted on every "
              "soft-deleted table it uses.\n")
