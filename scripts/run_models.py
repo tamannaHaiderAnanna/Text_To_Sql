@@ -3,7 +3,7 @@
 Works with any OpenAI-compatible chat endpoint: Ollama (the default,
 http://127.0.0.1:11434/v1), vLLM on Colab, or a hosted API. Two baselines need no model:
   old-query  change nothing (how often the old query is still right, or silently wrong)
-  reference  the scripted rewrite from make_schema_changes.py (rename/opaque only; should score 100%)
+  reference  the scripted rewrite from make_schema_changes.py, which knows the change (should score 100%)
 Results go to results/<db>__<model>__<mode>[__hint].jsonl, one line per task. An interrupted
 run continues where it stopped.
 

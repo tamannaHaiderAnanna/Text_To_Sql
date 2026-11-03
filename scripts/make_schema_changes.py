@@ -7,6 +7,9 @@ database). The gold answer is worked out automatically:
     result on the ORIGINAL database;
   - softdelete only marks rows as deleted, so the gold answer is the old query's result on
     a copy where those rows are really deleted.
+Every task also gets a reference rewrite made by a fixed rule from the known change (rename
+the columns, join the split-off table, skip deleted rows). It must return exactly the gold
+rows, which shows that every task can be solved.
 The original database is opened read-only and never changed.
 
 Usage (from the project folder):
@@ -117,6 +120,72 @@ def rename_columns(sql: str, mapping: dict, schema: dict) -> str:
         if key in mapping:
             col.set("this", exp.to_identifier(mapping[key]))
     return tree.sql(dialect="sqlite")
+
+
+def own_nodes(select: exp.Select, kind: type) -> list:
+    """Nodes of one kind that belong to this SELECT itself, not to a subquery inside it."""
+    return [n for n in select.find_all(kind) if n.find_ancestor(exp.Select) is select]
+
+
+def join_split_tables(sql: str, plan: dict, schema: dict) -> str:
+    """Reference rewrite for the split variant: join the new table on the primary key and read
+    the moved columns from it."""
+    tree = sqlglot.parse_one(sql, read="sqlite")
+    for select in list(tree.find_all(exp.Select)):
+        tables, cols = own_nodes(select, exp.Table), own_nodes(select, exp.Column)
+        used = {t.alias_or_name.lower() for t in tables}
+
+        def owner(col: exp.Column):
+            if col.table:
+                return next((t for t in tables if t.alias_or_name.lower() == col.table.lower()), None)
+            owners = [t for t in tables if t.name.lower() in schema
+                      and col.name.lower() in (c.lower() for c in schema[t.name.lower()]["columns"])]
+            return owners[0] if len(owners) == 1 else None
+
+        for table in tables:
+            name = table.name.lower()
+            if name not in plan:
+                continue
+            new_table, moved = plan[name]
+            reads = [c for c in cols if c.name.lower() in (m.lower() for m in moved) and owner(c) is table]
+            if not reads:
+                continue
+            alias, n = new_table, 2
+            while alias.lower() in used:  # the same table twice in one SELECT
+                alias, n = f"{new_table}_{n}", n + 1
+            used.add(alias.lower())
+            key = schema[name]["pk"]
+            select.join(new_table, on=f"{alias}.{key} = {table.alias_or_name}.{key}", join_type="inner",
+                        join_alias=None if alias == new_table else alias, dialect="sqlite", copy=False)
+            for col in reads:
+                if col.table:
+                    col.set("table", exp.to_identifier(alias))
+    return tree.sql(dialect="sqlite")
+
+
+def skip_deleted_rows(sql: str, tables: list) -> str:
+    """Reference rewrite for the softdelete variant: read only rows with is_deleted = 0."""
+    tree = sqlglot.parse_one(sql, read="sqlite")
+    for select in list(tree.find_all(exp.Select)):
+        for table in own_nodes(select, exp.Table):
+            if table.name.lower() not in tables:
+                continue
+            alive = exp.condition(f"{table.alias_or_name}.is_deleted = 0", dialect="sqlite")
+            join = table.parent
+            if isinstance(join, exp.Join) and join.side:  # outer join: filter in ON so the outer rows stay
+                on = join.args.get("on")
+                join.set("on", exp.and_(on, alive) if on else alive)
+            else:
+                select.where(alive, copy=False)
+    return tree.sql(dialect="sqlite")
+
+
+def reference_sql(op: str, sql: str, plan: dict, schema: dict) -> str:
+    if op in ("rename", "opaque"):
+        return rename_columns(sql, plan[op], schema)
+    if op == "split":
+        return join_split_tables(sql, plan["split"], schema)
+    return skip_deleted_rows(sql, plan["softdelete"]["tables"])
 
 
 def make_rename(src: Path, dst: Path, mapping: dict) -> None:
@@ -245,12 +314,12 @@ def main() -> None:
                 stats["softdelete_silent"] += task["result_changes"]
             else:
                 gold = orig.execute(q["SQL"]).fetchall()
-            if op in ("rename", "opaque"):
-                task["reference_sql"] = rename_columns(q["SQL"], plan[op], schema)
-                ok = same_result(variants[op].execute(task["reference_sql"]).fetchall(), gold)
-                stats[f"{op}_reference_ok"] += ok
-                if not ok:
-                    print(f"WARNING: reference SQL does not match gold for {task['task_id']}")
+            task["reference_sql"] = reference_sql(op, q["SQL"], plan, schema)
+            # stricter than BIRD's set rule: the same rows the same number of times
+            ok = Counter(variants[op].execute(task["reference_sql"]).fetchall()) == Counter(gold)
+            stats[f"{op}_reference_ok"] += ok
+            if not ok:
+                print(f"WARNING: reference SQL does not match gold for {task['task_id']}")
             task["gold_rows"] = [list(r) for r in gold]
             tasks.append(task)
             stats[op] += 1
@@ -265,10 +334,10 @@ def main() -> None:
     (out / "changes.json").write_text(json.dumps(changes, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(f"{db_id}: {len(questions)} questions -> {len(tasks)} tasks in {out / 'tasks.jsonl'}")
-    for op in ("rename", "opaque"):
+    for op in dbs:
         print(f"  {op:<10} {stats[op]:3} tasks  (reference SQL matches gold: {stats[op + '_reference_ok']}/{stats[op]})")
-    print(f"  {'split':<10} {stats['split']:3} tasks  (split tables rebuild the original rows: {'yes' if split_ok else 'NO'})")
-    print(f"  {'softdelete':<10} {stats['softdelete']:3} tasks  (old query silently wrong in {stats['softdelete_silent']})")
+    print(f"  split tables rebuild the original rows: {'yes' if split_ok else 'NO'}")
+    print(f"  softdelete: old query silently wrong in {stats['softdelete_silent']} of {stats['softdelete']}")
     print(f"  deleted ids: { {t: len(ids) for t, ids in deleted.items()} }")
 
 

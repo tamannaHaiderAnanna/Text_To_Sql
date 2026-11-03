@@ -8,5 +8,18 @@
     "tasks": 39,
     "ran_without_error": 39,
     "correct": 39
+  },
+  "split": {
+    "tasks": 26,
+    "ran_without_error": 26,
+    "correct": 26
+  },
+  "softdelete": {
+    "tasks": 40,
+    "ran_without_error": 40,
+    "correct": 40,
+    "silent_tasks": 18,
+    "silent_fixed": 18,
+    "mentions_is_deleted": 40
   }
 }
